@@ -1,0 +1,66 @@
+@font-face {
+  font-family: 'Monocraft';
+  src: url('fonts/Monocraft.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+#centerP {
+    position: relative;
+    font-family: 'Monocraft', sans-serif;
+    color: rgb(87, 87, 255);
+    z-index: 1;
+    /* Create space for the pseudo-elements */
+    overflow: visible;
+}
+
+#centerP::before,
+#centerP::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    color: rgb(87, 87, 255);
+    opacity: 0.5;
+    z-index: 0;
+    pointer-events: none;
+    filter: blur(2px);
+    animation: ripple 2s infinite;
+    animation-delay: 0s;
+}
+
+#centerP::after {
+    opacity: 0.3;
+    filter: blur(6px);
+    animation-delay: 1s;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    70% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+#undrC {
+    color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: large;
+    font-family: 'Monocraft', sans-serif;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
